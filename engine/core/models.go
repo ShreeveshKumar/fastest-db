@@ -1,0 +1,16 @@
+type GeoFeature struct {
+	Type       string     `json:"type"`
+	Properties Properties `json:"properties"`
+	Geometry   Geometry   `json:"geometry"`
+}
+
+type Properties struct {
+	Name         string  `json:"name"`
+	Crop         string  `json:"crop"`
+	AreaHectares float64 `json:"area_hectares"`
+}
+
+type Geometry struct {
+	Type        string        `json:"type"`
+	Coordinates [][][]float64 `json:"coordinates"` 
+}
