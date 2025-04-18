@@ -2,6 +2,8 @@ type GeoFeature struct {
 	Type       string     `json:"type"`
 	Properties Properties `json:"properties"`
 	Geometry   Geometry   `json:"geometry"`
+	Time Timestamp `json:"timestamp"`
+	GeoHash string `json:"geohash`
 }
 
 type Properties struct {
@@ -14,3 +16,9 @@ type Geometry struct {
 	Type        string        `json:"type"`
 	Coordinates [][][]float64 `json:"coordinates"` 
 }
+
+
+type Timestamp struct{
+	Time time.Time `json:"time"`
+}
+
