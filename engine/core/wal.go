@@ -1,6 +1,3 @@
-
-
-
 package main
 
 import (
@@ -104,22 +101,6 @@ func (w *WAL) Recover() ([]Op, error) {
 	}
 
 	return ops, nil
-}
-
-func main() {
-	// Example usage
-	wal := &WAL{}
-	err := wal.Append("insert", "key1", Point{latitude: 1, longitude: 2})
-	if err != nil {
-		fmt.Println("Error appending to WAL:", err)
-	}
-
-	ops, err := wal.Recover()
-	if err != nil {
-		fmt.Println("Error recovering from WAL:", err)
-	} else {
-		fmt.Println("Recovered operations:", ops)
-	}
 }
 
 

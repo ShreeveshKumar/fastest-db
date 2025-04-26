@@ -13,32 +13,43 @@
 
 // ✨ Optional: Make flush frequency configurable.
 
+package main
 
-package main 
 import (
 	"database/sql"
-    "fmt"
-    _ "github.com/lib/pq"
+	"fmt"
+	_ "github.com/lib/pq"
 	"os"
-);
-
-  var(
-    userisname = os.Getenv("DB_USER")
-    dbPass = os.Getenv("DB_PASS")
 )
-const connectionStr="user=wait password=wait dbname=postgres host=localhost port=5432 sslmode=disable"
 
-func writeToDB()(){
-   
+var (
+	userisname = os.Getenv("DB_USER")
+	dbPass     = os.Getenv("DB_PASS")
+)
+
+const connectionStr = "user=wait password=wait dbname=postgres host=localhost port=5432 sslmode=disable"
+
+func writeToDB() {
+
 	dbUser := os.Getenv("DB_USER")
-    dbPass := os.Getenv("DB_PASS")
+	dbPass := os.Getenv("DB_PASS")
 
-	fmt.Printf(dbUser,dbPass); 
+	fmt.Printf(dbUser, dbPass)
 
-	_, err := sql.Open("mysql", connectionStr);
-    if err != nil {
-        panic(err)
-    }
+	db, err := sql.Open("mysql", connectionStr)
+	if err != nil {
+		panic(err)
+	}
+
+	defer db.Close()
+
+	err = db.Ping()
+
+	if err != nil {
+		fmt.Printf("err connectinhg to DB")
+	}
+
+    // query = 
 
 
 

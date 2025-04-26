@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package storepb;
+
+option go_package = ".";
+
+service GeoStore {
+  rpc AddPoint(AddRequest) returns (AddResponse);
+  rpc GetPoint(GetRequest) returns (GetResponse);
+  rpc UpdatePoint(UpdateRequest) returns (UpdateResponse);
+  rpc DeletePoint(DeleteRequest) returns (DeleteResponse);
+}
+
+message Point {
+  double latitude = 1;
+  double longitude = 2;
+  string payload = 3; 
+}
+
+message AddRequest {
+  string key = 1;
+  Point point = 2;
+}
+
+message AddResponse {
+  string status = 1;
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  Point point = 1;
+}
+
+message UpdateRequest {
+  string key = 1;
+  Point point = 2;
+}
+
+message UpdateResponse {
+  string status = 1;
+}
+
+message DeleteRequest {
+  string key = 1;
+}
+
+message DeleteResponse {
+  string status = 1;
+}
