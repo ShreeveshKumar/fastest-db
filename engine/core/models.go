@@ -1,3 +1,8 @@
+package main; 
+import(
+	"time"
+)
+
 type GeoFeature struct {
 	Type       string     `json:"type"`
 	Properties Properties `json:"properties"`
