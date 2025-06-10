@@ -1,27 +1,29 @@
-import { Request, Response } from "express"
+import { Request, Response, RequestHandler } from "express"
+import { IncomingData, PointsNear } from "../types/data"
 
-const postData = async (_req: Request, _res: Response) => {
+export const postData: RequestHandler = async (_req: Request, _res: Response) => {
     try {
 
     } catch (err) {
-        return _res.status(500).json({ message: "Internal Server Error occured" })
+        _res.status(500).json({ message: "Internal Server Error occured" })
     }
 }
 
 
-const checkRecent = async (_req: Request, _res: Response) => {
+export const checkRecent: RequestHandler = async (_req: Request, _res: Response) => {
     try {
 
     } catch (err) {
-        return _res.status(500).json({ message: "Internal Server Error occured" })
+        _res.status(500).json({ message: "Internal Server Error occured" })
     }
 }
 
 
-const nearbyPoints = async (_req: Request, _res: Response) => {
+export const nearbyPoints: RequestHandler = async (_req: Request, _res: Response) => {
     try {
 
     } catch (err) {
-        return _res.status(500).json({ message: "Internal Server Error occured" })
+        _res.status(500).json({ message: "Internal Server Error occured" })
     }
 }
+

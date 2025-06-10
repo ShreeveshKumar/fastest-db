@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package storepb;
+
+option go_package = ".";
+
+service GeoStore {
+  rpc StoreData(StoreRequest) returns (StoreResponse);
+  rpc GetData(GetRequest) returns (DataResponse);
+  rpc FindNearby(NearbyRequest) returns (NearbyResponse);
+}
+
+message Point{
+  double latitude = 1;
+  double longitude = 2;
+  string deviceId = 3
+  string timeStamp = 4; 
+}
+
+message StoreRequest{
+ Point point = 1 
+}
+
+message StoreResponse {
+  bool status = 1;
+}
+
+message GetRequest {
+  string deviceId = 1;
+}
+
+message DataResponse {
+  Point point = 1 ;
+  bool status = 2
+}
+
+message NearbyRequest{
+  double latitude = 1; 
+  double longitude = 2; 
+  int64 radius = 3; 
+}
+
+message NearbyResponse{
+ repeated Point poinst = 1; 
+ int32 count = 2; 
+ bool status = = 3; 
+}

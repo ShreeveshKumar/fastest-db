@@ -1,7 +1,7 @@
 
 export interface IncomingData {
-    latitude: string;
-    longitude: string;
+    latitude: number;
+    longitude: number;
     deviceId: string;
     timeStamp: string;
 }
