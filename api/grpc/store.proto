@@ -8,17 +8,18 @@ service GeoStore {
   rpc StoreData(StoreRequest) returns (StoreResponse);
   rpc GetData(GetRequest) returns (DataResponse);
   rpc FindNearby(NearbyRequest) returns (NearbyResponse);
+  rpc HealthStatus(Healthcheck) returns (Healthresponse);
 }
 
 message Point{
   double latitude = 1;
   double longitude = 2;
-  string deviceId = 3
+  string deviceId = 3;
   string timeStamp = 4; 
 }
 
 message StoreRequest{
- Point point = 1 
+ Point point = 1; 
 }
 
 message StoreResponse {
@@ -30,8 +31,8 @@ message GetRequest {
 }
 
 message DataResponse {
-  Point point = 1 ;
-  bool status = 2
+  Point point = 1;
+  bool status = 2;
 }
 
 message NearbyRequest{
@@ -41,7 +42,15 @@ message NearbyRequest{
 }
 
 message NearbyResponse{
- repeated Point poinst = 1; 
+ repeated Point points = 1; 
  int32 count = 2; 
- bool status = = 3; 
+ bool status =  3; 
+}
+
+message Healthcheck{
+    bool status = 1;
+}
+
+message Healthresponse{
+    bool status = 1;
 }

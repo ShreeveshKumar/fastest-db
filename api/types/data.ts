@@ -16,3 +16,8 @@ export interface PointsNear {
     points: Array<any>;
 }
 
+export interface NearByPoints{
+    latitude: number,
+    longitude: number,
+    radius: number,
+}
